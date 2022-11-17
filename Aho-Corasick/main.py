@@ -14,7 +14,7 @@ def build(pattern_list):
 
     # goes through each pattern in pattern_list
     for pattern in pattern_list:
-        # algorithm is case-insensitive, so each pattern is set to lowercase
+        # algorithm is case-insensitive, so each pattern is set to lowercase  # why, though?
         pattern = pattern.lower()
         current_state = 0
 
