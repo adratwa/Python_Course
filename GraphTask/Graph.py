@@ -3,7 +3,7 @@
 class Graph():
 
     def __init__(self):
-        self.dictOfVertices = {}
+        self.dictOfVertices = {}  # to nie Java
 
     def add_vertex(self, vertex):
         if vertex not in self.dictOfVertices:
@@ -13,9 +13,9 @@ class Graph():
         # this is non-directed graph so we have to add vertex2 to values of key = vertex1
         # and vertex1 to values of key = vertex2
 
-        (vertex1, vertex2) = tuple(edge)
+        vertex1, vertex2 = edge
         if vertex1 in self.dictOfVertices:
-            if vertex2 not in self.dictOfVertices[vertex1]:
+            if vertex2 not in self.dictOfVertices[vertex1]: # a gdyby użyć zbioru zamiast listy?
                 self.dictOfVertices[vertex1].append(vertex2)
         else:
             # if vertex is not found, new is created
@@ -89,7 +89,7 @@ class BfsIterator:
     def __init__(self, graph, vertex):
         self.graph = graph
         self.visited_vertexes = []
-        self.queue = [vertex]
+        self.queue = [vertex]  # collections.deque
         self.bfs_list = []
 
         while self.queue:
