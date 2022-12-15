@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "Potop",
+        "author": "Henryk Sienkiewicz",
+        "is_borrowed": true,
+        "borrowing_date": "2022-12-14 12:24:23.536870",
+        "due_date": "2023-02-01 12:24:23.537628",
+        "readers_that_reserved_book": []
+    },
+    {
+        "id": 2,
+        "title": "Kod Leaonarda da Vinci",
+        "author": "Dan Brown",
+        "is_borrowed": false,
+        "borrowing_date": null,
+        "due_date": null,
+        "readers_that_reserved_book": []
+    },
+    {
+        "id": 3,
+        "title": "Harry Potter",
+        "author": "J.K.Rowling",
+        "is_borrowed": true,
+        "borrowing_date": "2022-12-14 12:31:00.516421",
+        "due_date": "2023-01-11 12:31:00.517489",
+        "readers_that_reserved_book": []
+    }
+]
