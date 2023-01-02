@@ -1,3 +1,5 @@
+# to nie jest zadanie na jeden plik
+
 from datetime import date, datetime, timedelta
 import json
 import jsonpickle
@@ -8,14 +10,14 @@ class Reader(object):
     def __init__(self, username, id):
         self.username = username
         self.id = id
-        self.list_of_borrowed_books = []
+        self.list_of_borrowed_books = []  # samo borrowed_books by nie wystarczyło?
         self.list_of_reserved_books = []
 
     def borrow_book(self):
         Library.list_of_books = Library.deserialize(Menu.books_file)
         Library.list_of_readers = Library.deserialize(Menu.readers_file)
-        print("Books that you can borrow")
-        [print(book) if not book["is_borrowed"] else book for book in Library.list_of_books]
+        print("Books that you can borrow")  # proszę iść do WBP przy Rajskiej i wyobrazić sobie wypisanie na ekran wszystkich książek z jednej sali
+        [print(book) if not book["is_borrowed"] else book for book in Library.list_of_books]  # czy zwykła pętla nie byłaby czytelniejsza w tym przypadku?
         book_id = int(input("Enter id of a book that you want to borrow: "))
         for book in Library.list_of_books:
             if book["id"] == book_id:
@@ -57,7 +59,7 @@ class Reader(object):
         else:
             print("Book is not in catalog, you can't reserve it")
 
-    def prolong_rental(self):
+    def prolong_rental(self):  # komunikacja z użytkownikiem i logika biznesowa w jednej metodzie
         Library.list_of_books = Library.deserialize(Menu.books_file)
         Library.list_of_readers = Library.deserialize(Menu.readers_file)
         print("Books you have borrowed and can extend their return date")
@@ -184,7 +186,7 @@ class Librarian(object):
         Library.serialize(Library.list_of_readers, Menu.readers_file)
 
 
-class Library(object):
+class Library(object): # ta klasa ma tylko atrybuty klasowe i metody statyczne
     list_of_books = []
     list_of_readers = []
     list_of_librarians = []
@@ -233,7 +235,7 @@ class Library(object):
             if title.lower() == book["title"].lower():
                 books.append(book)
         if books:
-            print("Founded books:")
+            print("Found books:")
             for book in books:
                 print(book)
         else:
@@ -304,7 +306,7 @@ class Library(object):
 
 
 class Menu:
-    readers_file = "readers.json"
+    readers_file = "readers.json"  # jak się to ma do menu?
     books_file = "books.json"
     librarians_file = "librarians.json"
 
