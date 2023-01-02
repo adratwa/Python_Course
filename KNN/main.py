@@ -3,23 +3,23 @@ from numpy.linalg import norm
 
 
 def euclidean_distance(a, b):
-    a, b = np.array(a), np.array(b)
+    a, b = np.array(a), np.array(b)  # można założyć poprawny typ na wejściu
     return np.sqrt(sum((a - b)**2))
 
 
 def manhattan_distance(a, b):
-    return sum(abs(value1-value2) for value1, value2 in zip(a,b))
+    return sum(abs(value1-value2) for value1, value2 in zip(a,b))  # nie dałoby się uniknąć tej pętli?
 
 
 def cosine_similarity(a, b):
-    return np.dot(a, b) / (norm(a) * norm(b))
+    return np.dot(a, b) / (norm(a) * norm(b))  # 1-
 
 
 def max_distance(a,b):
     return max(abs(value1-value2) for value1, value2 in zip(a,b))
 
 
-def train(train_set, test_instance, k, distance_function):
+def train(train_set, test_instance, k, distance_function):  # a jak wywołać to wielokrotnie  # czym jest test_instance?
     distances = []
     for train_instance in train_set:
         distances.append((train_instance, distance_function(test_instance, train_instance)))
